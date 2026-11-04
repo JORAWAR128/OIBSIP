@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert temperatures between Celsius, Fahrenheit and Kelvin with a responsive temperature converter.">
+    <title>Thermo | Temperature Converter</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+            <a href="#top" class="brand">
+                <div class="brand-icon">°</div>
+                <span>thermo<span class="brand-dot">.</span></span>
+            </a>
+
+            <div class="sidebar-content">
+                <p class="sidebar-label">WORKSPACE</p>
+
+                <a href="#top" class="nav-item active">
+                    <span class="nav-icon">◉</span>
+                    <span>Converter</span>
+                </a>
+
+                <a href="#conversion-guide" class="nav-item">
+                    <span class="nav-icon">⌁</span>
+                    <span>Temperature units</span>
+                </a>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="status-indicator"></div>
+                <div>
+                    <p class="status-title">System operational</p>
+                    <p class="status-subtitle">Ready to convert</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content" id="top">
+
+            <header class="topbar">
+                <div>
+                    <p class="breadcrumb">WORKSPACE / CONVERTER</p>
+                    <h1>Temperature Converter</h1>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="live-indicator"></div>
+                    <span>Live conversion</span>
+                </div>
+            </header>
+
+            <section class="welcome-section">
+                <div>
+                    <p class="eyebrow">PRECISION MADE SIMPLE</p>
+                    <h2>Convert temperatures<br>with clarity.</h2>
+                    <p class="welcome-description">
+                        Switch between Celsius, Fahrenheit and Kelvin
+                        with accurate, instant results.
+                    </p>
+                </div>
+
+                <div class="temperature-illustration" aria-hidden="true">
+                    <div class="thermometer">
+                        <div class="thermometer-line"></div>
+                        <div class="thermometer-bulb"></div>
+                    </div>
+                    <div class="illustration-circle circle-one"></div>
+                    <div class="illustration-circle circle-two"></div>
+                    <span class="degree-symbol">°</span>
+                </div>
+            </section>
+
+            <section class="converter-card" aria-labelledby="converter-heading">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">CONVERSION TOOL</p>
+                        <h3 id="converter-heading">Enter temperature</h3>
+                    </div>
+                    <span class="precision-tag">● High precision</span>
+                </div>
+
+                <div class="input-layout">
+
+                    <div class="input-group">
+                        <label for="temperatureInput">TEMPERATURE VALUE</label>
+
+                        <input
+                            type="number"
+                            id="temperatureInput"
+                            placeholder="Enter a value"
+                            step="any"
+                            max="1000000000"
+                            aria-describedby="inputHelp errorMessage"
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="unitSelect">CONVERT FROM</label>
+
+                        <select id="unitSelect">
+                            <option value="C">Celsius (°C)</option>
+                            <option value="F">Fahrenheit (°F)</option>
+                            <option value="K">Kelvin (K)</option>
+                        </select>
+                    </div>
+
+                    <button id="convertButton" class="convert-button" type="button">
+                        Convert <span>→</span>
+                    </button>
+
+                </div>
+
+                <p id="errorMessage" class="error-message" role="alert" aria-live="polite"></p>
+
+                <div class="input-note" id="inputHelp">
+                    <span>ⓘ</span>
+                    Allowed input range: up to 1,000,000,000. Temperatures below absolute zero are invalid.
+                </div>
+
+            </section>
+
+            <section class="results-section" aria-labelledby="results-heading">
+
+                <div class="results-heading">
+                    <div>
+                        <p class="section-label">CONVERSION RESULTS</p>
+                        <h3 id="results-heading">Your temperatures</h3>
+                    </div>
+                    <span class="results-caption">All units displayed together</span>
+                </div>
+
+                <div class="result-grid">
+
+                    <div class="result-card">
+                        <div class="result-top">
+                            <span class="unit-icon">°C</span>
+                            <span class="result-unit">CELSIUS</span>
+                        </div>
+                        <p class="result-value" id="celsiusResult">--</p>
+                        <p class="result-description">Metric temperature scale</p>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-top">
+                            <span class="unit-icon">°F</span>
+                            <span class="result-unit">FAHRENHEIT</span>
+                        </div>
+                        <p class="result-value" id="fahrenheitResult">--</p>
+                        <p class="result-description">Imperial temperature scale</p>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-top">
+                            <span class="unit-icon">K</span>
+                            <span class="result-unit">KELVIN</span>
+                        </div>
+                        <p class="result-value" id="kelvinResult">--</p>
+                        <p class="result-description">Scientific temperature scale</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="summary-card">
+                <div class="summary-icon">↗</div>
+
+                <div class="summary-content">
+                    <p class="section-label">CONVERSION SUMMARY</p>
+                    <p id="summaryText" aria-live="polite">
+                        Enter a temperature above to see your conversion summary.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Temperature conversion reference -->
+            <section class="conversion-guide" id="conversion-guide">
+
+                <div class="guide-heading">
+                    <p class="section-label">LEARN THE BASICS</p>
+                    <h2>Temperature conversion guide</h2>
+                    <p>
+                        Understand how Celsius, Fahrenheit and Kelvin
+                        relate to one another.
+                    </p>
+                </div>
+
+                <div class="formula-grid">
+
+                    <article class="formula-card">
+                        <span class="formula-label">CELSIUS TO FAHRENHEIT</span>
+                        <h3>°C → °F</h3>
+                        <p class="formula">°F = (°C × 9/5) + 32</p>
+                        <p class="formula-example">Example: 25°C = 77°F</p>
+                    </article>
+
+                    <article class="formula-card">
+                        <span class="formula-label">FAHRENHEIT TO CELSIUS</span>
+                        <h3>°F → °C</h3>
+                        <p class="formula">°C = (°F − 32) × 5/9</p>
+                        <p class="formula-example">Example: 77°F = 25°C</p>
+                    </article>
+
+                    <article class="formula-card">
+                        <span class="formula-label">CELSIUS TO KELVIN</span>
+                        <h3>°C → K</h3>
+                        <p class="formula">K = °C + 273.15</p>
+                        <p class="formula-example">Example: 25°C = 298.15 K</p>
+                    </article>
+
+                    <article class="formula-card">
+                        <span class="formula-label">KELVIN TO CELSIUS</span>
+                        <h3>K → °C</h3>
+                        <p class="formula">°C = K − 273.15</p>
+                        <p class="formula-example">Example: 298.15 K = 25°C</p>
+                    </article>
+
+                    <article class="formula-card">
+                        <span class="formula-label">FAHRENHEIT TO KELVIN</span>
+                        <h3>°F → K</h3>
+                        <p class="formula">K = (°F − 32) × 5/9 + 273.15</p>
+                        <p class="formula-example">Example: 77°F = 298.15 K</p>
+                    </article>
+
+                    <article class="formula-card">
+                        <span class="formula-label">KELVIN TO FAHRENHEIT</span>
+                        <h3>K → °F</h3>
+                        <p class="formula">°F = (K − 273.15) × 9/5 + 32</p>
+                        <p class="formula-example">Example: 298.15 K = 77°F</p>
+                    </article>
+
+                </div>
+
+                <div class="absolute-zero-note">
+                    <span class="zero-icon">!</span>
+                    <div>
+                        <h3>What is absolute zero?</h3>
+                        <p>
+                            Absolute zero is the lowest possible temperature:
+                            0 K, −273.15°C or −459.67°F.
+                            Temperatures below this point are not physically possible.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <footer class="footer">
+                <span>THERMO. &copy; 2026</span>
+                <span>Built with HTML, CSS & JavaScript</span>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
