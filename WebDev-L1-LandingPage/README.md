@@ -55,5 +55,3 @@ Screenshots of the completed landing page are available in the `screenshots/` fo
 **Internship Track:** Web Development and Designing  
 **Level:** Level 1  
 **Task:** Task 1 — Landing Page
-
-# OIBSIP
